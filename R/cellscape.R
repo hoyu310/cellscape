@@ -832,7 +832,7 @@ cellscape <- function(cnv_data = NULL,
   w
   
   #https://stackoverflow.com/questions/35056733/how-to-capture-html-output-as-png-in-r
-  htmlwidgets::saveWidget(w, save_html_path)
+  htmlwidgets::saveWidget(widget = w, file = save_html_path, selfcontained = TRUE)
   
   #return(widget)
 }
