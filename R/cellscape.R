@@ -833,6 +833,7 @@ cellscape <- function(cnv_data = NULL,
   #https://stackoverflow.com/questions/35056733/how-to-capture-html-output-as-png-in-r
   htmlwidgets::saveWidget(widget, save_html_path)
   
+  return(widget)
 }
 
 #' Get depth first search of a tree
