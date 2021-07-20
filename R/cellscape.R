@@ -822,18 +822,19 @@ cellscape <- function(cnv_data = NULL,
   x = append(cellscape_userParams, timescape_userParams)
 
   # create widget
-  widget <- htmlwidgets::createWidget(
+  htmlwidgets::createWidget(
     name = 'cellscape',
     x,
     width = width,
     height = height,
     package = 'cellscape'
-  )
+  ) -> w
+  w
   
   #https://stackoverflow.com/questions/35056733/how-to-capture-html-output-as-png-in-r
-  htmlwidgets::saveWidget(widget, save_html_path)
+  htmlwidgets::saveWidget(w, save_html_path)
   
-  return(widget)
+  #return(widget)
 }
 
 #' Get depth first search of a tree
