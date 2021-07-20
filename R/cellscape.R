@@ -245,7 +245,8 @@ cellscape <- function(cnv_data = NULL,
                     vaf_threshold = 0.05,
                     show_warnings = TRUE,
                     width = 900, 
-                    height = 800) {
+                    height = 800,
+					save_html_path = NULL) {
 
   # CHECK REQUIRED INPUTS ARE PRESENT 
 
@@ -821,13 +822,17 @@ cellscape <- function(cnv_data = NULL,
   x = append(cellscape_userParams, timescape_userParams)
 
   # create widget
-  htmlwidgets::createWidget(
+  widget <- htmlwidgets::createWidget(
     name = 'cellscape',
     x,
     width = width,
     height = height,
     package = 'cellscape'
   )
+  
+  #https://stackoverflow.com/questions/35056733/how-to-capture-html-output-as-png-in-r
+  htmlwidgets::saveWidget(widget, save_html_path)
+  
 }
 
 #' Get depth first search of a tree
